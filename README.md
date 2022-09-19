@@ -204,58 +204,6 @@ return answers to the following questions:
 
 Or come up with some ideas of your own!
 
-## "I am completely stuck"
-
-This is a challenging lab. Process, small functions, helper functions. All of
-these are tools that are designed to get you un-stuck.
-
-One last tool is the "Pry" debugging library - it can be a real help.
-
-At the top of `hashketball.rb` put the line `require "pry"`.
-
-Using Pry, when running RSpec tests with the `learn test` command, we can pause
-the execution of our Ruby code. This allows us to step into the code and play
-with any available variables or methods that are in scope.
-
-We tell Ruby where to pause by writing `binding.pry` in our code. When Ruby sees
-that magic word, it will stop execution and hand things over to a REPL called
-Pry. It's there that we can do the inspection.
-
-Below is an example start for `num_points_per_game` with `binding.pry` included:
-
-```rb
-def num_points_per_game(player_name)
-  binding.pry
-  game_hash.each do |location, team_data|
-    #are you ABSOLUTELY SURE what 'location' and 'team data' are? use binding.pry to find out!
-    binding.pry
-    team_data.each do |attribute, data|
-      #are you ABSOLUTELY SURE what 'attribute' and 'team data' are? use binding.pry to find out!
-      binding.pry
-
-      #what is 'data' at each loop throughout .each block? when will the following line of code work and when will it break?
-      data.each do |data_item|
-          binding.pry
-      end
-    end
-  end
-end
-```
-
-At every place Ruby sees `binding.pry`, it will stop the program's execution.
-While the program is stopped, you can print out variables that are in scope. At
-the first `binding.pry` in the example above, you can type in `player_name` and
-have the value printed out by Pry. At the second `binding.pry`, you will be able
-to access `player_name`, `location`, and `team_data` and have those values
-printed out by `pry`. When you're done at one binding, type `exit` and the code
-will resume running (until it hits another `binding.pry`). If you're all done
-with a given `pry` session `exit-program` or `exit!` will close Pry and return
-you to the command-line.
-
-When running `learn test`, if any `binding.pry` lines are present in the
-solution, Pry will still kick in so you may want to remove them once you think
-you've solved a method.
-
 ***
 
 ## Conclusion
