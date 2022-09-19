@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 
-from conference_badges import (
-    badge_maker, batch_badge_creator,
-    assign_rooms, printer
+from basket_ball import (
+    num_points_per_game, player_age,
+    team_colors, team_names,
+    player_numbers, player_stats,
+    average_rebounds_by_shoe_brand
 )
 
 if __name__ == '__main__':
