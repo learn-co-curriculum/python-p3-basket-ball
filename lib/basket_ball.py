@@ -182,3 +182,70 @@ def game_dict():
             ]
         }
     }
+
+
+def get_all_players():
+  all_players = {}
+  for team in ['home', 'away']:
+    for player in game_dict()[team]['players']:
+      all_players.update(
+        {player['name']: {
+          "name": player["name"],
+          "number": player["number"],
+          "position": player["position"],
+          "points_per_game": player["points_per_game"],
+          "rebounds_per_game": player["rebounds_per_game"],
+          "assists_per_game": player["assists_per_game"],
+          "steals_per_game": player["steals_per_game"],
+          "blocks_per_game": player["blocks_per_game"],
+          "career_points": player["career_points"],
+          "age": player["age"],
+          "height_inches": player["height_inches"],
+          "shoe_brand": player["shoe_brand"]
+          }
+        }
+      )
+  return all_players
+
+def num_points_per_game(player_name):
+  return(get_all_players()[player_name]["points_per_game"])
+
+def player_age(player_name):
+  return get_all_players()[player_name]["age"]
+
+def team_colors(team_name):
+  for team in game_dict():
+    if game_dict()[team]["team_name"] == team_name:
+      return game_dict()[team]["colors"]
+
+def team_names():
+  team_names = []
+  for team in game_dict():
+    team_names.append(game_dict()[team]["team_name"])
+  return team_names
+
+def player_numbers(team_name):
+  player_numbers = []
+  for team in game_dict():
+    if game_dict()[team]["team_name"] == team_name:
+      team_players = game_dict()[team]["players"]
+      for player in team_players:
+        player_numbers.append(player["number"])
+  return player_numbers
+
+def player_stats(player_name):
+    return(get_all_players()[player_name])
+
+def average_rebounds_by_shoe_brand():
+  shoe_dict = {}
+  players = get_all_players()
+  for player in players:
+    brand = players[player]["shoe_brand"]
+    points = players[player]["points_per_game"]
+    if (brand in shoe_dict):
+      shoe_dict[brand].append(points)
+    else:
+      shoe_dict[brand] = [points]
+  for brand in shoe_dict:
+    avg = sum(shoe_dict[brand]) / len(shoe_dict[brand])
+    print(f'{brand}: ', "{0:.2f}".format(avg))
