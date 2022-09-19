@@ -16,6 +16,7 @@ def game_dict():
                     "career_points": 3945,
                     "age": 24,
                     "height_inches": 82,
+                    "shoe_brand": "Nike",
                 },
                 {
                     "name": "Darius Garland",
@@ -29,6 +30,7 @@ def game_dict():
                     "career_points": 3142,
                     "age": 22,
                     "height_inches": 73,
+                    "shoe_brand": "Nike",
                 },
                 {
                     "name": "Evan Mobley",
@@ -42,6 +44,7 @@ def game_dict():
                     "career_points": 1034,
                     "age": 21,
                     "height_inches": 83,
+                    "shoe_brand": "Adidas",
                 },
                 {
                     "name": "Kevin Love",
@@ -55,6 +58,7 @@ def game_dict():
                     "career_points": 14305,
                     "age": 34,
                     "height_inches": 80,
+                    "shoe_brand": "Nike",
                 },
                 {
                     "name": "Isaac Okoro",
@@ -68,6 +72,7 @@ def game_dict():
                     "career_points": 1234,
                     "age": 21,
                     "height_inches": 77,
+                    "shoe_brand": "Nike",
                 },
                 {
                     "name": "Ricky Rubio",
@@ -81,6 +86,7 @@ def game_dict():
                     "career_points": 7399,
                     "age": 31,
                     "height_inches": 74,
+                    "shoe_brand": "Adidas",
                 },
             ],
         },
@@ -101,6 +107,7 @@ def game_dict():
                     "career_points": 14231,
                     "age": 29,
                     "height_inches": 76,
+                    "shoe_brand": "Nike",
                 },
                 {
                     "name": "Kyle Kuzma",
@@ -114,6 +121,7 @@ def game_dict():
                     "career_points": 5336,
                     "age": 27,
                     "height_inches": 81,
+                    "shoe_brand": "Puma",
                 },
                 {
                     "name": "Kentavious Caldwell-Pope",
@@ -127,19 +135,21 @@ def game_dict():
                     "career_points": 7911,
                     "age": 29,
                     "height_inches": 77,
+                    "shoe_brand": "Nike",
                 },
                 {
-                    "name": "Kevin Love",
-                    "number": 0,
+                    "name": "Davis Bertans",
+                    "number": 42,
                     "position": "Power Forward",
-                    "points_per_game": 13.6,
-                    "rebounds_per_game": 7.2,
-                    "assists_per_game": 2.2,
-                    "steals_per_game": 0.4,
-                    "blocks_per_game": 0.2,
-                    "career_points": 14305,
-                    "age": 34,
-                    "height_inches": 80,
+                    "points_per_game": 5.6,
+                    "rebounds_per_game": 2.1,
+                    "assists_per_game": 0.6,
+                    "steals_per_game": 0.3,
+                    "blocks_per_game": 0.3,
+                    "career_points": 3165,
+                    "age": 29,
+                    "height_inches": 82,
+                    "shoe_brand": "Nike",
                 },
                 {
                     "name": "Kristaps Porzingis",
@@ -153,6 +163,7 @@ def game_dict():
                     "career_points": 6371,
                     "age": 27,
                     "height_inches": 87,
+                    "shoe_brand": "Adidas",
                 },
                 {
                     "name": "Rui Hachimura",
@@ -166,6 +177,7 @@ def game_dict():
                     "career_points": 1913,
                     "age": 24,
                     "height_inches": 80,
+                    "shoe_brand": "Jordan",
                 },
             ]
         }
