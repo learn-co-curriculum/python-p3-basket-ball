@@ -2,7 +2,7 @@
 
 ## Learning Goals
 
-- Practice iterating over nested hashes.
+- Practice iterating over nested dictionaries
 
 ***
 
@@ -42,150 +42,171 @@ Code your solution in `basket_ball.py` following the steps below. Keep
 This lab is the largest and most complex yet, so set aside some time for this
 one. Remember all the tricks you learned from working with objects in JavaScript
 — even though the syntax here is a bit different, the same problem solving
-techniques are still just as important.
+techniques are just as important.
 
 ***
 
-## Building Functions
+## Some Tips for Completing this Lab
 
 To get started, ensure you can read data out of the nested data structure with
 simple, basic `[]` calls.
 
 You can confirm this by starting the Python shell from this lesson's main
-directory and importing the functions from `basket_ball.py` with
-`from basket_ball import *`:
+directory and importing the functions from `basket_ball.py`:
 
 ```console
-$ from basket_ball import *
+>>> from lib.basket_ball import *
 ```
 
 From here, you can interact with the `game_dict()` function. Calling
-`game_dict()[home][team_name]`, for example, should return
-`"Cleveland Cavaliers"`. This is because `game_dict()` returns a dictionary- we
-can chain `[]` calls on the dictionary it returns.
+`game_dict()['home']['team_name']`, for example, should return `"Cleveland
+Cavaliers"`. This is because `game_dict()` returns a dictionary — we can chain
+`[]` calls on the dictionary it returns. As you're building your functions, use
+the shell to help you figure out how to access the information inside the
+dictionary returned by `game_dict()`. You can test the functions you're building
+from the Python shell as well.
 
-Write helper functionss with descriptive names so it's easier to work with the
+Write helper functions with descriptive names so it's easier to work with the
 data. For example, you can create a function called `get_all_players()` that
 gets the players of both the home and away teams.
 
 Be flexible. Work from what you have to where you want to go. Or, work backward.
 Or, make a midpoint between what you have and what you need to have.
 
-### Working with Nested Data Structures
+## Building the Functions
 
-Run `learn test`. There are a whole bunch of methods that are expected to exist.
-The first one is `num_points_scored`. But there's so much output. Let's make it
-more manageable.
+Let's take a look at the specification for the first deliverable:
 
-We can run this method's test, again by using the [-e][example] or `--example`
-flag: `rspec spec/hashketball_spec.rb -e num_points_scored`.
+- Build a function, `num_points_per_game()` that takes in an argument of a player's
+  name and returns the number of points per game for that player.
 
-> **PRO TIP**: You can use this strategy to run small chunks of the test suite.
-> Simply look in the `spec/hashketball_spec.rb` file and find a `describe`
-> block. You can run all the tests under it by using that block's `String` as
-> an argument to `-e`.
+Some questions to consider:
 
-That `num_points_scored` method produces an _insight_. Here's a specification:
+- Where in the dictionary will you find a player's `points_per_game`? What are
+  the steps you need to complete to iterate down to that level?
+- How can you check and see if a player's name matches the name that has been
+  passed into the method as an argument?
+- What does the function's return value need to be?
+- Is there a helper function you can write to break down the process into
+  smaller chunks and avoid repetitive code?
 
-- Build a method, `num_points_scored` that takes in an argument of a player's
-  name and returns the number of points scored for that player.
+You may want to start by having `num_points_per_game()` return the entire
+`game_dict()` dictionary. You can then add code one step at a time, getting
+closer to the needed information in each step, until you get it working.
 
-Why don't we define that method and have it return `game_hash`?
+As you complete this lab, try to follow this general process: find a failing
+test, build a "skeleton function," iterate on the code, get success, and move
+on. This is the way software is "grown" in the real world.
 
-```rb
-def num_points_scored
-  game_hash
-end
-```
+## Deliverables
 
-Run the test again. Sure enough, our method fails (unsurprisingly), but the test
-results have changed. Continue to add code to get `num_points_scored` working.
-If you need to "invent" helper methods, to help you process `game_hash`, do so!
-Here's some sample thought process:
+### `num_points_per_game()`
 
-> Think about where in the hash you will find a player's `:points`. How can you
-> iterate down into that level? Think about the return value of your method.
-> Remember that `.each` returns the original collection that you are iterating
-> over. How can you return the number of points for a particular player? How
-> would we have done it with a simple `while` loop? Which Enumerable helps
-> here? Is a while-loop better than an Enumerable? _Etc._
+Build a function, `num_points_per_game()` that takes in an argument of a
+player's name and returns the number of points per game for that player.
 
-If you repeat the process we just explored together, you will be able to
-deliver more complex methods to satisfy tests. Find a failing test, build a
-"skeleton method," iterate on the code, get success, and move on. This is the
-way software is "grown" in the real world.
+### `player_age()`
 
-### Additional Methods
+Build a function, `player_age()`, that takes in an argument of a player's name
+and returns that player's age.
 
-- Build a method, `shoe_size`, that takes in an argument of a player's name and
-  returns the shoe size for that player.
+### `team_colors()`
 
-  - Think about how you will find the shoe size of the correct player. How can
-    you check and see if a player's name matches the name that has been passed
-    into the method as an argument?
+Build a function, `team_colors()`, that takes in an argument of the team name
+and returns a `list` of that team's colors.
 
-- Build a method, `team_colors`, that takes in an argument of the team name and
-  returns an `Array` of that team's colors.
+### `team_names()`
 
-- Build a method, `team_names`, that operates on the game `Hash` to return an
-  `Array` of the team names.
+Build a function, `team_names()`, that operates on the dictionary to return a
+`list` of the team names.
 
-- Build a method, `player_numbers`, that takes in an argument of a team name and
-  returns an `Array` of the jersey numbers for that team.
+### `player_numbers()`
 
-- Build a method, `player_stats`, that takes in an argument of a player's name
-  and returns a hash of that player's stats.
+Build a function, `player_numbers()`, that takes in an argument of a team name
+and returns a `list` of the jersey numbers for that team.
 
-  - Check out the following example of the expected return value of the
-    `player_stats` method:
+### `player_stats()`
 
-  ```rb
-  player_stats("Alan Anderson")
+Build a function, `player_stats()`, that takes in an argument of a player's name
+and returns a dictionary of that player's stats.
+
+- Check out the following example of the expected return value of the
+  `player_stats()` function:
+
+  ```py
+  player_stats("Darius Garland")
   # => {
-  #      :player_name => "Alan Anderson",
-  #      :number => 0,
-  #      :shoe => 16,
-  #      :points => 22,
-  #      :rebounds => 12,
-  #      :assists => 12,
-  #      :steals => 3,
-  #      :blocks => 1,
-  #      :slam_dunks => 1
+  #      "name": "Darius Garland",
+  #      "number": 10,
+  #      "position": "Point Guard",
+  #      "points_per_game": 21.7,
+  #      "rebounds_per_game": 3.3,
+  #      "assists_per_game": 8.6,
+  #      "steals_per_game": 1.3,
+  #      "blocks_per_game": 0.1,
+  #      "career_points": 3142,
+  #      "age": 22,
+  #      "height_inches": 73,
+  #      "shoe_brand": "Nike",
   #    }
   ```
 
-- Build a method, `big_shoe_rebounds`, that will return the number of rebounds
-  associated with the player that has the largest shoe size. Break this one down
-  into steps:
+### CHALLENGE: `average_rebounds_by_shoe_brand()`
 
-  - First, find the player with the largest shoe size
-  - Then, return that player's number of rebounds
-  - Remember to think about return values here.
+Build a function, `average_rebounds_by_shoe_brand()`, that will calculate the
+average number of rebounds for players who wear a particular shoe brand. The
+function should print out a message for each brand using the following format:
 
-**Bonus Questions:**
+```console
+"<Brand>": average_rebounds
+```
 
-If you would like to take on a few more challenges, there are a few more things
-you can do. There are not tests for this content - these are provide for
-additional practice working with hash data.
+The average should be printed as a float with two decimal places.
 
-Define methods to return the answer to the following questions:
+Building this function will offer several challenges. You'll want to break it
+down into steps. Here is one possible approach:
 
-1. Which player has the most points? Call the method `most_points_scored`.
+First, create a dictionary that will keep track of the shoe brands along with a
+list of the numbers of rebounds for all the players who wear that brand of shoe.
+An entry in the dictionary may look something like this:
 
-2. Which team has the most points? Call the method `winning_team`.
+```py
+{ "Nike": [5.0, 8.1, 4.7] }
+```
 
-3. Which player has the longest name? Call the method `player_with_longest_name`.
+**Hint**: As you iterate through the players in `game_dict()`, you will need to
+check whether the player's shoe brand is already in the dictionary. If it isn't,
+you will add the brand as a key, and a list containing the current player's
+rebounds as the value. If it is already present, you will simply add the
+rebounds to the array.
 
-**Super Bonus:**
+Next, iterate through the dictionary you've created to calculate the average
+rebounds for each brand. The average is the sum of all the values divided by the
+number of values. For example, using the example above, the average is:
 
-1. Write a method that returns true if the player with the longest name had the
-   most steals. Call the method `long_name_steals_a_ton?`.
+```text
+(5.0 + 8.1 + 4.7)/3 = 5.93
+```
 
-***
+**Hint**: You may want to use Google to help you with this step.
+
+Finally, print the results to the screen.
+
+### Additional Practice
+
+The ability to manipulate and access data from nested data structures is an
+important skill. If you'd like some more practice, try writing functions to
+return answers to the following questions:
+
+1. Which player has the most career points?
+2. Are there any jersey numbers that are worn by players on both teams?
+3. Which player has the longest name?
+
+Or come up with some ideas of your own!
 
 ## "I am completely stuck"
 
-This is a challenging lab. Process, small methods, helper methods. All of
+This is a challenging lab. Process, small functions, helper functions. All of
 these are tools that are designed to get you un-stuck.
 
 One last tool is the "Pry" debugging library - it can be a real help.
@@ -200,10 +221,10 @@ We tell Ruby where to pause by writing `binding.pry` in our code. When Ruby sees
 that magic word, it will stop execution and hand things over to a REPL called
 Pry. It's there that we can do the inspection.
 
-Below is an example start for `num_points_scored` with `binding.pry` included:
+Below is an example start for `num_points_per_game` with `binding.pry` included:
 
 ```rb
-def num_points_scored(player_name)
+def num_points_per_game(player_name)
   binding.pry
   game_hash.each do |location, team_data|
     #are you ABSOLUTELY SURE what 'location' and 'team data' are? use binding.pry to find out!
@@ -239,11 +260,10 @@ you've solved a method.
 
 ## Conclusion
 
-This is a new frontier for you! You are now using powerful tools of Ruby
-to transform a nested data structure that you made from non-computer-ready
-data to produce insights. You've made huge strides in becoming a really solid
-developer in the procedural programming paradigm. This is a huge moment.
-Celebrate it!
+This is a new frontier for you! You are now using powerful tools of Python to
+access data from a nested data structure to produce insights. You've made huge
+strides in becoming a really solid developer in the procedural programming
+paradigm. This is a huge moment. Celebrate it!
 
 Believe it or not, the code that put rockets in space and humankind on the Moon
 were only slight variations on this style of programming. You've learned
