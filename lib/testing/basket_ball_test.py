@@ -90,4 +90,4 @@ class TestBasketBall:
       sys.stdout = captured_out
       average_rebounds_by_shoe_brand()
       sys.stdout = sys.__stdout__
-      assert(captured_out.getvalue() == "Nike:  14.60\nAdidas:  16.73\nPuma:  17.10\nJordan:  11.30\n")
+      assert(captured_out.getvalue() == "Nike:  4.93\nAdidas:  7.07\nPuma:  8.50\nJordan:  3.80\n")
