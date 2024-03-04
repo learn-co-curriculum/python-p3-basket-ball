@@ -182,3 +182,56 @@ def game_dict():
             ]
         }
     }
+
+
+
+# declare the function team_colors(). inside has an argument which is the team name
+# a conditional loop which is going to asign a status depending on the team name
+
+def team_colors(team_name):
+    if team_name == 'Cleveland Cavaliers':
+        team_status ='home'
+    elif team_name == 'Washington Wizards':
+        team_status = 'away'
+    else:
+        return []
+    
+    team_colors = game_dict()[f"{team_status}"]['colors']
+    return team_colors
+
+# team_name = input(str('What team colors do you want: '))
+
+# print(team_colors(team_name))
+
+#define the function player_stats().inside it we had an argument player_name
+#used iteration (for loop) to go from a team to players within a team and then to an individiual player
+
+def player_stats(player_name):
+    for team in game_dict().values():
+        for player in team["players"]:
+            if player["name"] == player_name:
+                return player
+            
+    return None
+
+player_name = input('Enter the player name: ')
+player_info = player_stats(player_name)
+
+print(player_info)
+    
+#num_points_per_game- Irene
+#player_age - Eliab
+#team_name - Evalyne
+#player_numbers - Rachael
+
+def num_points_per_game():
+    pass
+
+def player_age():
+    pass
+
+def team_name():
+    pass
+
+def player_numbers():
+    pass
