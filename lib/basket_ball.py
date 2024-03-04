@@ -227,9 +227,15 @@ print(player_info)
 def num_points_per_game():
     pass
 
-def player_age():
-    pass
-
+def player_age(player_name):
+    for team in game_dict().values():
+        for player in team['players']:
+            if player['name'] == player_name:
+                return player['age']
+    return None
+player_name = input("Enter the playe name you wish to obtain age:")
+player_info = player_age(player_name)
+print(player_info)
 def team_name():
     pass
 
